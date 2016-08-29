@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, :controllers => {registrations: "users/registrations"}
+
+  root to: "home#index"
+
+  scope :auth do
+    get 'is_signed_in', to: 'auth#is_signed_in?'
+  end
+
 end
