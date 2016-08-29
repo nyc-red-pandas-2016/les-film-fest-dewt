@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(username: "cauliflowerking", full_name: "Tony", email:"fake@email.com", encrypted_password: "password", type: "Reviewer")
-User.create!(username: "dvdlin214", full_name: "David", email:"david@email.com", encrypted_password: "password", type: "Plebeian")
-User.create!(username: "savagesnake", full_name: "Wolfgang", email:"wolfgang@email.com", encrypted_password: "password", type: "Reviewer")
-User.create!(username: "marcomartinez10", full_name: "Marco", email:"marco@email.com", encrypted_password: "password", type: "Plebeian")
-User.create!(username: "nwang9", full_name: "Nico", email:"nico@email.com", encrypted_password: "password", type: "Reviewer")
-User.create!(username: "chainsawbucktooth", full_name: "Neill", email:"neill@email.com", encrypted_password: "password", type: "Plebeian")
+User.create!(username: "cauliflowerking", full_name: "Tony", email:"fake@email.com", password: "password", type: "Reviewer")
+User.create!(username: "dvdlin214", full_name: "David", email:"david@email.com", password: "password", type: "Plebeian")
+User.create!(username: "savagesnake", full_name: "Wolfgang", email:"wolfgang@email.com", password: "password", type: "Reviewer")
+User.create!(username: "marcomartinez10", full_name: "Marco", email:"marco@email.com", password: "password", type: "Plebeian")
+User.create!(username: "nwang9", full_name: "Nico", email:"nico@email.com", password: "password", type: "Reviewer")
+User.create!(username: "chainsawbucktooth", full_name: "Neill", email:"neill@email.com", password: "password", type: "Plebeian")
 
 Genre.create!(name: "action")
 Genre.create!(name: "comedy")
