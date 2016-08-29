@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20160829185219) do
     t.datetime "created_at",                                                            null: false
     t.datetime "updated_at",                                                            null: false
     t.integer  "user_id"
-    t.integer  "#<ActiveRecord::ConnectionAdapters::TableDefinition:0x007f89efc61198>"
+    t.integer  "#<ActiveRecord::ConnectionAdapters::TableDefinition:0x007ffe0e3c6ec8>"
   end
 
 end
