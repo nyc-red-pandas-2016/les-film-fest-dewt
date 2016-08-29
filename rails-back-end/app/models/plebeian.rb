@@ -1,0 +1,2 @@
+class Plebeian < User
+end
