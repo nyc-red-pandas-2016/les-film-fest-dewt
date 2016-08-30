@@ -14,7 +14,6 @@ export default class SignUp extends Component {
     this.handleRegistrationClick = this.handleRegistrationClick.bind(this)
   }
   handleRegistrationClick(event) {
-    debugger;
     event.preventDefault();
     var username = this.refs.usernameInput.value
     var email = this.refs.emailInput.value
@@ -30,13 +29,25 @@ export default class SignUp extends Component {
           email: email,
           type: type,
           password: password,
-          passwordConfirmation: passwordConfirmation,
+          passwordConfirmation: passwordConfirmation
         },
       }
-    }).done(function(data) {
-      location.reload();
-  }.bind(this));
-}
+    }).done(function(response) {
+      $.ajax({
+        method: "POST",
+        url: "http://localhost:3000/users/sign_in.json",
+        data: {
+          user: {
+            email: email,
+            password: password,
+          },
+        }
+      }).done(function(user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        location.replace('/');
+        }.bind(this));
+      });
+  }
 
   render() {
     return (

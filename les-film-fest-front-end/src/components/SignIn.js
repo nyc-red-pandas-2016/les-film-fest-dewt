@@ -5,12 +5,6 @@ import $ from 'jquery';
 export default class SignIn extends Component {
   constructor() {
     super();
-  //   this.state = {
-  //     username: '',
-  //     email: '',
-  //     type: '',
-  //     password: '',
-  //     password_confirmation: ''
     this.handleLoginClick = this.handleLoginClick.bind(this)
   }
   handleLoginClick(event) {
@@ -26,12 +20,21 @@ export default class SignIn extends Component {
           password: password,
         },
       }
-    }).done(function(data) {
-      location.reload();
+    }).done(function(user) {
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      location.replace('/');
+      // this.props.location.query.onSignIn(data)
+      // $.ajax({
+      //   method: "GET",
+      //   url: "http://localhost:3000/auth/is_signed_in.json"
+      // }).done(function(response) {
+      //   debugger
+      // })
   }.bind(this));
 }
 
   render() {
+    debugger;
     return (
       <div>
         <p>Sign In Form</p>

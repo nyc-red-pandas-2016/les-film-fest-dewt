@@ -9,10 +9,12 @@ export default class App extends Component {
   super();
   this.state = {
     movies:[],
-    signedIn: null
+    signedIn: null,
+    user: null
   }
   this.filterGenre = this.filterGenre.bind(this)
   this.getMovies = this.getMovies.bind(this)
+  this.logOut = this.logOut.bind(this)
   }
 
   getMovies(url){
@@ -33,6 +35,11 @@ export default class App extends Component {
     this.getMovies(movieGenre)
   }
 
+  logOut(){
+    localStorage.removeItem('currentUser')
+    location.replace('/');
+  }
+
   componentDidMount(){
     let showAll = 'http://localhost:3000/movies'
     this.getMovies(showAll)
@@ -40,18 +47,23 @@ export default class App extends Component {
       method: "GET",
       url: "http://localhost:3000/auth/is_signed_in.json"
     }).done(function(data){
-      this.setState({ signedIn: data.signed_in });
+      this.setState({ signedIn: data.signed_in, user: data.user });
     }.bind(this));
   }
 
   render() {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return (
       <div>
         <section id="header">
           <h1 id="site-logo">LES Film Fest</h1>
-          <ul id="nav-bar">
-            <li><Link to="/sign_up">Sign Up</Link></li>
-            <li><Link to="/sign_in">Sign In</Link></li>
+          <ul id="nav-bar"> { !currentUser ?
+            <span>
+              <li><Link to="/sign_up">Sign Up</Link></li>
+              <li><Link to="/sign_in">Sign In</Link></li>
+            </span>
+            :
+            <li><button type="button" onClick={this.logOut}>Log Out</button></li> }
             <li><Link to="/">Home</Link></li>
           </ul>
         </section>
