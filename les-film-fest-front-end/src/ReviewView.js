@@ -21,9 +21,9 @@ export default class ReviewView extends Component {
   }
 
   render() {
-    debugger;
     return (
       <div>
+        <h2>{this.state.review.title}</h2>
         <p>{this.state.review.body}</p>
         <h2>Comments</h2>
         <ul className="comment-display">

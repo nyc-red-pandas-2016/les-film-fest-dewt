@@ -8,10 +8,12 @@ export default class MovieView extends Component{
     super();
     this.state = {
       movieInfo: {},
-      reviews: []
+      reviews: [],
+      reviewFormVisible: false
     }
     this.getMovieInfo = this.getMovieInfo.bind(this);
     this.getReviews = this.getReviews.bind(this);
+    this.toggleAddReviewForm = this.toggleAddReviewForm.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +36,12 @@ export default class MovieView extends Component{
         this.setState({
           reviews: response.data
         })
+    })
+  }
+
+  toggleAddReviewForm() {
+    this.setState({
+      reviewFormVisible: !this.state.reviewFormVisible
     })
   }
 
@@ -61,6 +69,24 @@ export default class MovieView extends Component{
             )}
           )}
         </div>
+        <button onClick={this.toggleAddReviewForm}>
+          { this.state.reviewFormVisible ?
+              <p>Hide review form</p>
+            :
+              <p>Add a review</p>
+          }
+        </button>
+        { this.state.reviewFormVisible ? 
+            <form onSubmit={this.handleSubmit}>
+              <label htmlFor="review[title]" className="form-label">Title:</label>
+              <input type="text" name="review[title]" className="form-input"/>
+              <label htmlFor="review[body]" className="form-label">Body:</label>
+              <textarea rows="5" cols="30" name="review[body]" className="form-textarea"></textarea>
+              <input type="submit" value="Add Review" className="form-input"/>
+            </form>
+          :
+            null
+        }
         <div className="review-display">
           {this.props.children}
         </div>
