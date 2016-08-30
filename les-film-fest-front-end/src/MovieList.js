@@ -13,10 +13,9 @@ export default class MovieList extends Component{
     };
     this.filterGenre = this.filterGenre.bind(this);
     this.getMovies = this.getMovies.bind(this);
-
   }
   
-  componentDidMount(){
+  componentDidMount() {
     Axios.get('http://localhost:3000/genres').then((response)=>{
         this.setState({
           genres: response.data
@@ -27,7 +26,7 @@ export default class MovieList extends Component{
     this.getMovies(showAll)
   }
 
-  getMovies(url){
+  getMovies(url) {
     Axios.get(url)
     .then((response)=>{
         this.setState({

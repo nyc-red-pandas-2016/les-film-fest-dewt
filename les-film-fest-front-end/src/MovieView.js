@@ -43,7 +43,7 @@ export default class MovieView extends Component{
       <div className="movie-display">
         <div className="movie-info">
           <h2>{title}</h2>
-          <img src={poster_url} alt={title}/>
+          <img src={poster_url} alt={title} className="movie-poster"/>
           <p>{year}</p>
           <p>{description}</p>
         </div>
@@ -51,14 +51,15 @@ export default class MovieView extends Component{
           { this.state.reviews.map((review, index) => {
             return (
               <li key={index} >
-                {review.title}
+                <Link to={`/movies/${this.props.params.movie_id}/reviews/${review.id}`} >
+                  {review.title}
+                </Link>
               </li>
             )}
           )}
         </div>
+        {this.props.children}
       </div>
-      // end of return
     )
-    // end of render
   }
 }

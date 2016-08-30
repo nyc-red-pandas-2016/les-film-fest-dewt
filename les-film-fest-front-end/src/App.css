@@ -48,3 +48,8 @@ body {
   text-align: center;
   vertical-align: top;
 }
+
+.movie-poster {
+  height: 300px;
+  width: 182.5px;
+}
