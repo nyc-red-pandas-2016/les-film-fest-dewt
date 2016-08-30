@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 import App from './App';
-import SignUp from './SignUp';
-import SignIn from './SignIn';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 import MovieList from './MovieList';
 import MovieView from './MovieView';
 import ReviewView from './ReviewView';
