@@ -16,6 +16,7 @@ export default class App extends Component {
 getMovies(url){
   Axios.get(url)
   .then((response)=>{
+    debugger
       this.setState({
         movies:response.data
       })
