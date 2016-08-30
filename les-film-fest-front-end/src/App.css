@@ -26,3 +26,25 @@ body {
 #page-contents {
   clear: both;
 }
+
+.thumbnail {
+  height: 100px;
+  width: 67.5px;
+  display: block;
+  margin: 20px auto;
+}
+
+.movie-list {
+  list-style-type: none;
+}
+
+.movie-list-item {
+  height: 200px;
+  width: 125px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+  vertical-align: top;
+}
