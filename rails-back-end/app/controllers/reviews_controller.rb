@@ -6,9 +6,20 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    print "Here are the params: #{params}"
     review = Review.find(params[:id])
     review_hash = { review: review, comments: review.comments }
     render json: review_hash.to_json
+  end
+
+  def create
+    review = Review.new(review_params)
+    if review.save
+      render json: review.to_json
+    end
+  end
+
+  private
+  def review_params
+    params.require(:review).permit(:title, :body, :reviewer_id, :movie_id)
   end
 end
