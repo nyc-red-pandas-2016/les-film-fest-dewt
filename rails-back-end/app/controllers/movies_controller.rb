@@ -1,4 +1,4 @@
-class MovieController < ApplicationController
+class MoviesController < ApplicationController
   def index
     all_movies
   end
@@ -12,12 +12,13 @@ class MovieController < ApplicationController
   private
   def all_movies
     movies = Movie.all
-    render json:movies
+    render json: movies
   end
+
   def all_genres
     movies = Movie.all
     genres = movies.map{|movie| movie.genres}.flatten
     genresName = genres.map{|genre| genre.name}.uniq
-     render json:genresName
+     render json: genresName
   end
 end
