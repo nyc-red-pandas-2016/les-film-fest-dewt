@@ -26,13 +26,15 @@ export default class ReviewView extends Component {
       <div>
         <p>{this.state.review.body}</p>
         <h2>Comments</h2>
-        {this.state.comments.map((comment, index) => {
-          return (
-            <li key={index}>
-              {comment.body}
-            </li>
+        <ul className="comment-display">
+          {this.state.comments.map((comment, index) => {
+            return (
+              <li key={index} className="individual-comment">
+                {comment.body}
+              </li>
+            )}
           )}
-        )}
+        </ul>
       </div>
     )
   }
