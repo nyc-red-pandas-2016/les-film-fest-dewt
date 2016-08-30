@@ -1,31 +1,17 @@
-class Movie extends React.Component {
-  constructor() {
-    super();
+import React,{Component} from 'react'
 
-    this.state = {
-      movie: null
-    }
-    componentDidMount() {
-      $.ajax({
-        url: 'movies/1'
-        method: 'GET'
-      }).done((respond) => {
-        this.setState ({
-          movie: response
-        });
-      });
-    }
-  }
-
-  render() {
+export default class Movie extends Component{
+  render(){
+    let {title,description,poster_url,year} = this.props.movieInfo
     return(
-      var data = this.state.movie
-      <div className="container">
-        <h1>{data.title}</h1>
-        <p>{data.year}</p>
-        <img src={data.poster_url}/>
-        <p>{data.description}</p>
+      <div className="movie-info">
+      <h2>{title}</h2>
+      <img src={poster_url} alt={title}/>
+      <p>{year}</p>
+      <p>{description}</p>
       </div>
-      )
+      // end of return
+    )
+    // end of render
   }
 }
