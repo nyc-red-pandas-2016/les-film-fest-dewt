@@ -2,7 +2,11 @@ class ReviewsController < ApplicationController
   def index
     movie = Movie.find(params[:movie_id])
     reviews = movie.reviews
-    render json: reviews.to_json
+    reviews_array = []
+    reviews.each do |review|
+      reviews_array << { reviewContent: review, comments: review.comments }
+    end
+    render json: reviews_array.to_json
   end
 
   def show
