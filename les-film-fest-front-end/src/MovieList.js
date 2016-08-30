@@ -25,6 +25,10 @@ export default class MovieList extends Component{
     this.getMovies(showAll)
   }
 
+  movieGenre(){
+
+  }
+
   getMovies(url) {
     Axios.get(url)
     .then((response)=>{
@@ -51,6 +55,7 @@ export default class MovieList extends Component{
 
   render(){
       let movies = this.state.movies
+
       return(
         <div>
           <ul className="movie-genres">
@@ -71,7 +76,7 @@ export default class MovieList extends Component{
           <ul className="movie-list">
             {movies.map((movie,index) => {
               return(
-                <Link to={`/movies/${movie.id}`} key={index}>
+                <Link to={`/movies/${movie.id}`}  key={index}>
                   <div className="movie-list-item">
                     <li>
                       <img src={movie.poster_url} className="thumbnail" alt={movie.name}/>

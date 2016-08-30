@@ -36,8 +36,8 @@ export default class MovieView extends Component{
         })
     })
   }
-
   render() {
+  
     let {title,description,poster_url,year} = this.state.movieInfo
     return(
       <div className="movie-display">

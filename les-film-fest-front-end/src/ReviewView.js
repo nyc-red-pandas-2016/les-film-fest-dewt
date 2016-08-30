@@ -21,7 +21,6 @@ export default class ReviewView extends Component {
   }
 
   render() {
-    debugger;
     return (
       <div>
         <p>{this.state.review.body}</p>
