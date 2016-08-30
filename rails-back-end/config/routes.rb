@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   scope :auth do
     get 'is_signed_in', to: 'auth#is_signed_in?'
+    post 'sign_user_in', to: 'auth#sign_user_in'
   end
 
 end

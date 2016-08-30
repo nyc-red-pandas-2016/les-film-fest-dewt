@@ -10,6 +10,7 @@ before_action :configure_account_update_params, only: [:update]
   # POST /resource
   def create
     super
+    render json: resource.to_json
   end
 
   # GET /resource/edit
