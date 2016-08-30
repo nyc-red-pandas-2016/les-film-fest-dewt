@@ -15569,3 +15569,9 @@ Processing by ReviewsController#show as HTML
 Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms)
 
 
+DEPRECATION WARNING: Passing strings or symbols to the middleware builder is deprecated, please change
+them to actual class references.  For example:
+
+  "Rack::Cors" => Rack::Cors
+
+ (called from <top (required)> at /Users/apprentice/emilia/les-film-fest-dewt/rails-back-end/config/environment.rb:5)
