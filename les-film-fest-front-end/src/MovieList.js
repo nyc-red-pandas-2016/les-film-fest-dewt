@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import './App.css';
-import Movie from './components/Movie';
 import Axios from 'axios';
 
 export default class MovieList extends Component{
@@ -14,7 +13,7 @@ export default class MovieList extends Component{
     this.filterGenre = this.filterGenre.bind(this);
     this.getMovies = this.getMovies.bind(this);
   }
-  
+
   componentDidMount() {
     Axios.get('http://localhost:3000/genres').then((response)=>{
         this.setState({
@@ -75,7 +74,7 @@ export default class MovieList extends Component{
                 <Link to={`/movies/${movie.id}`} key={index}>
                   <div className="movie-list-item">
                     <li>
-                      <img src={movie.poster_url} className="thumbnail"/>
+                      <img src={movie.poster_url} className="thumbnail" alt={movie.name}/>
                       {movie.title}
                     </li>
                   </div>

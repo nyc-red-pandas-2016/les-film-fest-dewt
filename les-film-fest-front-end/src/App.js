@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import './App.css';
-import Axios from 'axios'
 
 export default class App extends Component {
   render() {
