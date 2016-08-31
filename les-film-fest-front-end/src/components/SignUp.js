@@ -5,12 +5,6 @@ import $ from 'jquery';
 export default class SignUp extends Component {
   constructor() {
     super();
-  //   this.state = {
-  //     username: '',
-  //     email: '',
-  //     type: '',
-  //     password: '',
-  //     password_confirmation: ''
     this.handleRegistrationClick = this.handleRegistrationClick.bind(this)
   }
   handleRegistrationClick(event) {
@@ -22,7 +16,7 @@ export default class SignUp extends Component {
     var passwordConfirmation = this.refs.passwordConfirmationInput.value
     $.ajax({
       method: "POST",
-      url: "http://localhost:3000/users.json",
+      url: "http://localhost:3000/users",
       data: {
         user: {
           username: username,
@@ -57,13 +51,11 @@ export default class SignUp extends Component {
           <input type='text'
             name='username'
             placeholder='username'
-            //value={this.state.username}
             ref="usernameInput" />
 
           <input type='email'
             name='email'
             placeholder='email'
-            //value={this.state.email}
             ref="emailInput" />
 
           <select name="type" ref="typeInput">
@@ -74,13 +66,11 @@ export default class SignUp extends Component {
           <input type='password'
             name='password'
             placeholder='password'
-            //value={this.state.password}
             ref="passwordInput" />
 
           <input type='password'
             name='password_confirmation'
             placeholder='re-type password'
-            //value={this.state.password_confirmation}
             ref="passwordConfirmationInput" />
           <input type='submit' onClick={this.handleRegistrationClick} defaultValue="sign up"/>
 
