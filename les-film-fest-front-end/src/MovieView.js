@@ -13,7 +13,8 @@ export default class MovieView extends Component{
       reviewToView: {},
       currentUser: {},
       reviewer: false,
-      signedIn: false
+      signedIn: false,
+      averageRating: 0
     }
     this.getMovieInfo = this.getMovieInfo.bind(this);
     this.getReviews = this.getReviews.bind(this);
@@ -37,7 +38,7 @@ export default class MovieView extends Component{
     Axios.get(`http://localhost:3000/movies/${this.props.params.movie_id}`)
       .then((response) => {
         this.setState({
-          movieInfo: response.data
+          movieInfo: response.data.movieInfo, averageRating: response.data.averageRating
         })
       })
   }
@@ -119,6 +120,7 @@ export default class MovieView extends Component{
       <div className="movie-display">
         <div className="movie-info">
           <h2 className="movie-title">{title} ({year})</h2>
+          <h4>Average Rating: {this.state.averageRating}</h4>
           <img src={poster_url} alt={title} className="movie-poster"/>
           <span className="plot-details">
             <p className="plot-header">Plot:</p>
