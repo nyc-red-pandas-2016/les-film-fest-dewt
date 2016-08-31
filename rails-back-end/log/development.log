@@ -40485,3 +40485,9 @@ Completed 200 OK in 59ms (Views: 0.7ms | ActiveRecord: 2.6ms)
 >>>>>>> VOTE ON ALL KINDS OF SHIT
 
 
+DEPRECATION WARNING: Passing strings or symbols to the middleware builder is deprecated, please change
+them to actual class references.  For example:
+
+  "Rack::Cors" => Rack::Cors
+
+ (called from <top (required)> at /Users/tonynarisi/DevBootcamp/Phase 3/les-film-fest-dewt/rails-back-end/config/environment.rb:5)
