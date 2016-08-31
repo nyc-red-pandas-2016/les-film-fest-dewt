@@ -13,7 +13,8 @@ export default class MovieView extends Component{
       reviewToView: {},
       currentUser: {},
       reviewer: false,
-      signedIn: false
+      signedIn: false,
+      averageRating: 0
     }
     this.getMovieInfo = this.getMovieInfo.bind(this);
     this.getReviews = this.getReviews.bind(this);
@@ -22,6 +23,7 @@ export default class MovieView extends Component{
     this.viewReview = this.viewReview.bind(this);
     this.addComment = this.addComment.bind(this);
     this.getCurrentUser = this.getCurrentUser.bind(this);
+    this.addRating = this.addRating.bind(this);
   }
 
   componentDidMount() {
@@ -37,7 +39,7 @@ export default class MovieView extends Component{
     Axios.get(`http://localhost:3000/movies/${this.props.params.movie_id}`)
       .then((response) => {
         this.setState({
-          movieInfo: response.data
+          movieInfo: response.data.movieInfo, averageRating: response.data.averageRating
         })
       })
   }
@@ -87,7 +89,7 @@ export default class MovieView extends Component{
     let newReview = {
       title: this.refs.reviewTitle.value,
       body: this.refs.reviewBody.value,
-      reviewer_id: 1,
+      reviewer_id: this.state.currentUser.id,
       movie_id: this.state.movieInfo.id
     }
     Axios({
@@ -113,12 +115,49 @@ export default class MovieView extends Component{
     })
   }
 
+  addRating(e) {
+    e.preventDefault();
+    let newRating = {
+      value: this.refs.rating.value,
+      movie_id: this.state.movieInfo.id,
+      user_id: this.state.currentUser.id
+    }
+    Axios({
+      method: "post",
+      url: "http://localhost:3000/ratings",
+      data: newRating
+    })
+    .then((response) => {
+      this.setState({
+        averageRating: response.data
+      })
+    })
+  }
+
   render() {
     let {title,description,poster_url,year} = this.state.movieInfo
     return(
       <div className="movie-display">
         <div className="movie-info">
           <h2 className="movie-title">{title} ({year})</h2>
+          <h4>Average Rating: {this.state.averageRating}</h4>
+          { this.state.signedIn ?
+              <div>
+                <p>Rate this movie:</p>
+                <form onSubmit={this.addRating}>
+                  <select ref="rating" name="rating">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                  </select>
+                  <input type="submit" value="Rate this movie" />
+                </form>
+              </div>
+            :
+              null
+          }
           <img src={poster_url} alt={title} className="movie-poster"/>
           <span className="plot-details">
             <p className="plot-header">Plot:</p>

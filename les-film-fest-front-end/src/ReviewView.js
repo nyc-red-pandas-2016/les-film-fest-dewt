@@ -21,7 +21,7 @@ export default class ReviewView extends Component {
     e.preventDefault();
     let newComment = {
       body: this.refs.commentBody.value,
-      user_id: 1,
+      user_id: this.props.currentUser.id,
       review_id: this.props.review.reviewContent.id
     }
     Axios({
