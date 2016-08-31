@@ -87,6 +87,7 @@ export default class MovieView extends Component{
   }
 
   render() {
+
     let {title,description,poster_url,year} = this.state.movieInfo
     return(
       <div className="movie-display">
@@ -115,7 +116,7 @@ export default class MovieView extends Component{
               <p>Add a review</p>
           }
         </button>
-        { this.state.reviewFormVisible ? 
+        { this.state.reviewFormVisible ?
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="review[title]" className="form-label">Title:</label>
               <input ref="reviewTitle" type="text" name="review[title]" className="form-input"/>
