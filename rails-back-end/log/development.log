@@ -21491,3 +21491,239 @@ Processing by ReviewsController#index as HTML
   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
 Completed 200 OK in 99ms (Views: 0.2ms | ActiveRecord: 2.6ms)
 
+Started GET "/movies/2" for ::1 at 2016-08-30 19:14:11 -0400
+Started GET "/movies/2/reviews" for ::1 at 2016-08-30 19:14:11 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 46ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Processing by ReviewsController#index as HTML
+  Parameters: {"movie_id"=>"2"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 2]]
+Completed 200 OK in 86ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/movies/2/reviews/2" for ::1 at 2016-08-30 19:14:13 -0400
+Processing by ReviewsController#show as HTML
+  Parameters: {"movie_id"=>"2", "id"=>"2"}
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+Completed 200 OK in 71ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/genres" for ::1 at 2016-08-30 19:14:19 -0400
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.7ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/movies" for ::1 at 2016-08-30 19:14:19 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/6" for ::1 at 2016-08-30 19:14:20 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"6"}
+Started GET "/movies/6/reviews" for ::1 at 2016-08-30 19:14:20 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Parameters: {"movie_id"=>"6"}
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/6/reviews/6" for ::1 at 2016-08-30 19:14:21 -0400
+Processing by ReviewsController#show as HTML
+  Parameters: {"movie_id"=>"6", "id"=>"6"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 6]]
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/genres" for ::1 at 2016-08-30 19:14:26 -0400
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies" for ::1 at 2016-08-30 19:14:26 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/1" for ::1 at 2016-08-30 19:14:27 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/1/reviews" for ::1 at 2016-08-30 19:14:27 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/1/reviews/1" for ::1 at 2016-08-30 19:14:28 -0400
+Processing by ReviewsController#show as HTML
+  Parameters: {"movie_id"=>"1", "id"=>"1"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 1]]
+Completed 200 OK in 10ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies" for ::1 at 2016-08-30 19:14:35 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/genres" for ::1 at 2016-08-30 19:14:35 -0400
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/5/reviews" for ::1 at 2016-08-30 19:14:37 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"movie_id"=>"5"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies/5" for ::1 at 2016-08-30 19:14:37 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/5/reviews/5" for ::1 at 2016-08-30 19:14:41 -0400
+Processing by ReviewsController#show as HTML
+  Parameters: {"movie_id"=>"5", "id"=>"5"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 5]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies" for ::1 at 2016-08-30 19:14:43 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/genres" for ::1 at 2016-08-30 19:14:43 -0400
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/3" for ::1 at 2016-08-30 19:14:45 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/3/reviews" for ::1 at 2016-08-30 19:14:45 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"movie_id"=>"3"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 3]]
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/3/reviews/3" for ::1 at 2016-08-30 19:14:51 -0400
+Processing by ReviewsController#show as HTML
+  Parameters: {"movie_id"=>"3", "id"=>"3"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/is_signed_in.json" for ::1 at 2016-08-30 19:24:35 -0400
+Processing by AuthController#is_signed_in? as JSON
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres" for ::1 at 2016-08-30 19:24:35 -0400
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies" for ::1 at 2016-08-30 19:24:35 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies" for ::1 at 2016-08-30 19:24:35 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/2" for ::1 at 2016-08-30 19:24:36 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/2/reviews" for ::1 at 2016-08-30 19:24:36 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"movie_id"=>"2"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 2]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies/2/reviews/2" for ::1 at 2016-08-30 19:24:37 -0400
+Processing by ReviewsController#show as HTML
+  Parameters: {"movie_id"=>"2", "id"=>"2"}
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/genres" for ::1 at 2016-08-31 09:28:47 -0400
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies" for ::1 at 2016-08-31 09:28:47 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/6" for ::1 at 2016-08-31 09:28:50 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/6/reviews" for ::1 at 2016-08-31 09:28:50 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"movie_id"=>"6"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
