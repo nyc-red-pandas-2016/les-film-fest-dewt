@@ -43706,3 +43706,140 @@ Processing by MoviesController#index as HTML
 [active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (73.68ms)
 Completed 200 OK in 77ms (Views: 74.0ms | ActiveRecord: 2.3ms)
 
+<<<<<<< 1100250ddf7b3323806c3cb8aee42950dc3e4d05
+=======
+
+Started GET "/auth/is_signed_in.json" for ::1 at 2016-08-31 15:18:58 -0400
+Processing by AuthController#is_signed_in? as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres" for ::1 at 2016-08-31 15:18:58 -0400
+Processing by GenresController#index as HTML
+Started GET "/movies" for ::1 at 2016-08-31 15:18:58 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Genre::ActiveRecord_Relation (0.64ms)
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.3ms)
+
+
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers]   [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (99.53ms)
+Completed 200 OK in 104ms (Views: 100.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/movies" for ::1 at 2016-08-31 15:18:58 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (101.22ms)
+Completed 200 OK in 104ms (Views: 100.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/1" for ::1 at 2016-08-31 15:18:59 -0400
+Processing by UsersController#show as HTML
+Started GET "/movies/6" for ::1 at 2016-08-31 15:18:59 -0400
+Started GET "/movies/6/reviews" for ::1 at 2016-08-31 15:18:59 -0400
+  Parameters: {"id"=>"1"}
+Processing by MoviesController#show as HTML
+Processing by ReviewsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Parameters: {"id"=>"6"}
+  Parameters: {"movie_id"=>"6"}
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ratings"."value" FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 9]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ratings"."user_id" FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 6]]
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/ratings" for ::1 at 2016-08-31 15:19:02 -0400
+Processing by RatingsController#create as HTML
+  Parameters: {"value"=>"5", "movie_id"=>6, "user_id"=>1, "rating"=>{"value"=>"5", "movie_id"=>6, "user_id"=>1}}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ratings" ("value", "movie_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["value", 5], ["movie_id", 6], ["user_id", 1], ["created_at", 2016-08-31 19:19:02 UTC], ["updated_at", 2016-08-31 19:19:02 UTC]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ratings"."value" FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 6]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 6]]
+Completed 200 OK in 12ms (Views: 0.8ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/genres" for ::1 at 2016-08-31 15:19:04 -0400
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+Started GET "/movies" for ::1 at 2016-08-31 15:19:04 -0400
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Genre::ActiveRecord_Relation (1.18ms)
+Processing by MoviesController#index as HTML
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (74.99ms)
+Completed 200 OK in 78ms (Views: 75.6ms | ActiveRecord: 2.0ms)
+

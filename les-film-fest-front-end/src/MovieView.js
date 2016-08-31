@@ -149,7 +149,7 @@ export default class MovieView extends Component{
     })
     .then((response) => {
       this.setState({
-        averageRating: response.data
+        averageRating: response.data, userRated: true
       })
     })
   }
