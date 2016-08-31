@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :show, :new, :create, :destroy]
   end
 
-  get 'comments/:id', to: 'comment#show'
+  post 'comments', to: 'comments#create'
 
 
   root to: "home#index"
