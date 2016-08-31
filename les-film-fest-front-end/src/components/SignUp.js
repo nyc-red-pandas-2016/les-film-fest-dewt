@@ -5,6 +5,9 @@ import $ from 'jquery';
 export default class SignUp extends Component {
   constructor() {
     super();
+    this.state = {
+      errors: []
+    }
     this.handleRegistrationClick = this.handleRegistrationClick.bind(this)
   }
   handleRegistrationClick(event) {
@@ -14,7 +17,7 @@ export default class SignUp extends Component {
     var type = this.refs.typeInput.value
     var password = this.refs.passwordInput.value
     var passwordConfirmation = this.refs.passwordConfirmationInput.value
-    $.ajax({
+    var registrationRequest = $.ajax({
       method: "POST",
       url: "http://localhost:3000/users",
       data: {
@@ -26,7 +29,13 @@ export default class SignUp extends Component {
           passwordConfirmation: passwordConfirmation
         },
       }
-    }).done(function(response) {
+    })
+    registrationRequest.done(function(response) {
+      if (response.username || response.email || response.password) {
+        if (response.username) {this.setState({ errors: this.state.errors.concat(response.username)})}
+        if (response.email) {this.setState({ errors: this.state.errors.concat(response.email)})}
+        if (response.password) {this.setState({ errors: this.state.errors.concat(response.password)})}
+      } else {
       $.ajax({
         method: "POST",
         url: "http://localhost:3000/users/sign_in.json",
@@ -40,13 +49,22 @@ export default class SignUp extends Component {
         localStorage.setItem('currentUser', JSON.stringify(user));
         location.replace('/');
         }.bind(this));
-      });
+      }}.bind(this));
   }
 
   render() {
     return (
       <div>
         <p>Sign Up Form</p>
+        {this.state.errors ?
+        <div className="errors">
+          <ul>
+            {this.state.errors.map(function(error, i) {
+              return <li key={i}>{error}</li>
+            })}
+          </ul>
+        </div>
+        : <br/>}
         <form>
           <input type='text'
             name='username'
