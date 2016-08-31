@@ -87,7 +87,8 @@ export default class MovieView extends Component{
 
   addComment(response) {
     var newReviewToView = this.state.reviewToView;
-    newReviewToView.comments.concat([response]);
+    newReviewToView.comments = newReviewToView.comments.concat([response]);
+    debugger;
     this.setState({
       reviewToView: newReviewToView
     })
