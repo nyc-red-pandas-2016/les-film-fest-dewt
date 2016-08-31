@@ -10,7 +10,11 @@ export default class MovieView extends Component{
       movieInfo: {},
       reviews: [],
       reviewFormVisible: false,
-      reviewToView: {}
+      reviewToView: {},
+      currentUser: {},
+      reviewer: false,
+      signedIn: false,
+      averageRating: 0
     }
     this.getMovieInfo = this.getMovieInfo.bind(this);
     this.getReviews = this.getReviews.bind(this);
@@ -18,6 +22,8 @@ export default class MovieView extends Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.viewReview = this.viewReview.bind(this);
     this.addComment = this.addComment.bind(this);
+    this.getCurrentUser = this.getCurrentUser.bind(this);
+    this.addRating = this.addRating.bind(this);
   }
 
   componentDidMount() {
@@ -25,11 +31,15 @@ export default class MovieView extends Component{
     this.getReviews();
   }
 
+  componentWillMount() {
+    this.getCurrentUser();
+  }
+
   getMovieInfo() {
     Axios.get(`http://localhost:3000/movies/${this.props.params.movie_id}`)
       .then((response) => {
         this.setState({
-          movieInfo: response.data
+          movieInfo: response.data.movieInfo, averageRating: response.data.averageRating
         })
       })
   }
@@ -41,6 +51,18 @@ export default class MovieView extends Component{
           reviews: response.data
         })
     })
+  }
+
+  getCurrentUser() {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+      Axios.get(`http://localhost:3000/users/${currentUser.id}`)
+      .then((response) => {
+        this.setState({
+          currentUser: response.data.userInfo, reviewer: response.data.reviewerStatus, signedIn: true
+        })
+      })
+    }
   }
 
   toggleAddReviewForm() {
@@ -67,7 +89,7 @@ export default class MovieView extends Component{
     let newReview = {
       title: this.refs.reviewTitle.value,
       body: this.refs.reviewBody.value,
-      reviewer_id: 1,
+      reviewer_id: this.state.currentUser.id,
       movie_id: this.state.movieInfo.id
     }
     Axios({
@@ -88,9 +110,27 @@ export default class MovieView extends Component{
   addComment(response) {
     var newReviewToView = this.state.reviewToView;
     newReviewToView.comments = newReviewToView.comments.concat([response]);
-    debugger;
     this.setState({
       reviewToView: newReviewToView
+    })
+  }
+
+  addRating(e) {
+    e.preventDefault();
+    let newRating = {
+      value: this.refs.rating.value,
+      movie_id: this.state.movieInfo.id,
+      user_id: this.state.currentUser.id
+    }
+    Axios({
+      method: "post",
+      url: "http://localhost:3000/ratings",
+      data: newRating
+    })
+    .then((response) => {
+      this.setState({
+        averageRating: response.data
+      })
     })
   }
 
@@ -100,6 +140,24 @@ export default class MovieView extends Component{
       <div className="movie-display">
         <div className="movie-info">
           <h2 className="movie-title">{title} ({year})</h2>
+          <h4>Average Rating: {this.state.averageRating}</h4>
+          { this.state.signedIn ?
+              <div>
+                <p>Rate this movie:</p>
+                <form onSubmit={this.addRating}>
+                  <select ref="rating" name="rating">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                  </select>
+                  <input type="submit" value="Rate this movie" />
+                </form>
+              </div>
+            :
+              null
+          }
           <img src={poster_url} alt={title} className="movie-poster"/>
           <span className="plot-details">
             <p className="plot-header">Plot:</p>
@@ -116,27 +174,31 @@ export default class MovieView extends Component{
             )}
           )}
         </div>
-        <button onClick={this.toggleAddReviewForm}>
-          { this.state.reviewFormVisible ?
-              <p>Hide review form</p>
-            :
-              <p>Add a review</p>
-          }
-        </button>
-        { this.state.reviewFormVisible ?
-            <form onSubmit={this.handleSubmit}>
-              <label htmlFor="review[title]" className="form-label">Title:</label>
-              <input ref="reviewTitle" type="text" name="review[title]" className="form-input"/>
-              <label htmlFor="review[body]" className="form-label">Body:</label>
-              <textarea rows="5" cols="30" name="review[body]" className="form-textarea" ref="reviewBody"></textarea>
-              <input type="submit" value="Add Review" className="form-input"/>
-            </form>
+        { this.state.reviewer === true ? 
+            <button onClick={this.toggleAddReviewForm}>
+              { this.state.reviewFormVisible ?
+                  <p>Hide review form</p>
+                :
+                  <p>Add a review</p>
+              }
+            </button>
           :
-            null
+           null
+        }
+        { this.state.reviewFormVisible ?
+          <form onSubmit={this.handleSubmit}>
+            <label htmlFor="review[title]" className="form-label">Title:</label>
+            <input ref="reviewTitle" type="text" name="review[title]" className="form-input"/>
+            <label htmlFor="review[body]" className="form-label">Body:</label>
+            <textarea rows="5" cols="30" name="review[body]" className="form-textarea" ref="reviewBody"></textarea>
+            <input type="submit" value="Add Review" className="form-input"/>
+          </form>
+        :
+          null
         }
         { this.state.reviewLoaded ?
             <div className="review-display">
-              <ReviewView review={this.state.reviewToView} movieId={this.state.movieInfo.id} addComment={this.addComment} />
+              <ReviewView review={this.state.reviewToView} movieId={this.state.movieInfo.id} addComment={this.addComment} signedIn={this.state.signedIn} currentUser={this.state.currentUser}/>
             </div>
           :
             null

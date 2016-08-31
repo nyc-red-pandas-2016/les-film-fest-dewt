@@ -1,4 +1,6 @@
 class Review < ApplicationRecord
+  include VoteCount
+
   belongs_to :reviewer
   belongs_to :movie
   has_many :comments
