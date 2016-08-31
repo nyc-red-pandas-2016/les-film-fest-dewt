@@ -198,7 +198,7 @@ export default class MovieView extends Component{
         }
         { this.state.reviewLoaded ?
             <div className="review-display">
-              <ReviewView review={this.state.reviewToView} movieId={this.state.movieInfo.id} addComment={this.addComment} signedIn={this.state.signedIn}/>
+              <ReviewView review={this.state.reviewToView} movieId={this.state.movieInfo.id} addComment={this.addComment} signedIn={this.state.signedIn} currentUser={this.state.currentUser}/>
             </div>
           :
             null

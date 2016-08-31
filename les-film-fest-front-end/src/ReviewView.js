@@ -19,6 +19,7 @@ export default class ReviewView extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger;
     let newComment = {
       body: this.refs.commentBody.value,
       user_id: this.props.currentUser.id,
@@ -39,7 +40,6 @@ export default class ReviewView extends Component {
   }
 
   render() {
-    debugger;
     return (
       <div>
         <h2>{this.props.review.reviewContent.title}</h2>
