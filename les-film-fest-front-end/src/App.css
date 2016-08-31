@@ -25,4 +25,87 @@ body {
 
 #page-contents {
   clear: both;
+  border-top: 1px solid #000000;
+}
+
+.thumbnail {
+  height: 100px;
+  width: 67.5px;
+  display: block;
+  margin: 20px auto;
+  border: 2px solid #000000;
+  border-radius: 3px;
+}
+
+.movie-list {
+  list-style-type: none;
+  border-top: 1px solid #000000;
+}
+
+.movie-list-item {
+  height: 200px;
+  width: 125px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+  vertical-align: top;
+  background-color: #bca5cc;
+  color: #ffffff;
+}
+
+.movie-poster {
+  height: 300px;
+  width: 182.5px;
+  margin: 0px 0px 10px 100px;
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid #000000;
+}
+
+.movie-display {
+  width: 800px;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  margin: 20px auto;
+}
+
+.movie-title {
+  text-align: center;
+  font-size: 36px;
+}
+
+.plot-header {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.plot-details {
+  width: 300px;
+  display: inline-block;
+  margin-left: 125px;
+  vertical-align: top;
+}
+
+.review-header {
+  font-size: 18px;
+  text-align: center;
+}
+
+.review-list {
+  margin: 0px 0px 20px 100px;
+}
+
+.review-display {
+  margin-left: 100px;
+}
+
+.comment-display {
+  list-style-type: none;
+}
+
+.individual-comment {
+  border: 1px solid #000000;
+  width: 400px;
 }
