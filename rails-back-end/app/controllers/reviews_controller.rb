@@ -17,8 +17,9 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.new(review_params)
+    review_object = { reviewContent: review, comments: [] }
     if review.save
-      render json: review.to_json
+      render json: review_object.to_json
     end
   end
 
