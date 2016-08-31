@@ -13,7 +13,7 @@ export default class MovieList extends Component{
     this.filterGenre = this.filterGenre.bind(this);
     this.getMovies = this.getMovies.bind(this);
   }
-  
+
   componentDidMount() {
     Axios.get('http://localhost:3000/genres').then((response)=>{
         this.setState({
@@ -23,6 +23,10 @@ export default class MovieList extends Component{
 
     let showAll = 'http://localhost:3000/movies'
     this.getMovies(showAll)
+  }
+
+  movieGenre(){
+
   }
 
   getMovies(url) {
@@ -51,6 +55,7 @@ export default class MovieList extends Component{
 
   render(){
       let movies = this.state.movies
+
       return(
         <div>
           <ul className="movie-genres">
@@ -71,14 +76,14 @@ export default class MovieList extends Component{
           <ul className="movie-list">
             {movies.map((movie,index) => {
               return(
-                <Link to={`/movies/${movie.id}`} key={index}>
+                <li  key={index}>
+                <Link to={`/movies/${movie.id}`} >
                   <div className="movie-list-item">
-                    <li>
-                      <img src={movie.poster_url} className="thumbnail"/>
-                      {movie.title}
-                    </li>
+                      <h3 className="movieTitle">{movie.title}</h3>
+                      <img src={movie.poster_url} className="thumbnail" alt={movie.name}/>
                   </div>
                 </Link>
+                </li>
               )}
             )}
           </ul>

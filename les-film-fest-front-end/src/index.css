@@ -1,5 +1,109 @@
+*{
+  box-sizing: border-box;
+}
+html{
+  /*background-image: url(http://t1.gstatic.com/images?q=tbn:ANd9GcS61fdKkVcQIKtObjNGAELqVwyzhwFoIfNGZVbC-rqta12xBfLa);*/
+  background-image: url(http://img3.goodfon.su/original/1600x900/2/65/new-york-manhattan-neboskreb.jpg);
+  background-attachment: fixed;
+  background-position: center;
+    /*background-size: cover;*/
+
+  }
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+/*categories nav*/
+ul{
+    list-style:none;
+    margin :0;
+    padding:0;
+}
+#site-logo{color:#ade218;}
+#header {
+  padding-top: 15px;
+    overflow:hidden;
+    border-bottom: 1px solid #212121;
+    background-color: #353535;
+}
+
+#nav-bar a {
+    color:#959595;
+    text-decoration:none;
+    display:inline-block;
+    padding:20px 20px;
+    transition: all 300ms ease-in-out;
+    border-radius:5px 5px 0px 0px;
+    }
+#nav-bar a:hover{
+  color:#ececec;
+  background-color:#232222;
+}
+.movie-genres {
+    position: relative;
+    z-index:99;
+    padding: 15px;
+    background-color: #353535;
+    border-top: 1px solid #4a4646;
+    border-bottom: 1px solid #353535;
+    box-shadow: 0 2px 5px 0px #000000;
+}
+.movie-genres li{   display:inline-block;
+}
+.movie-genres li:not(:last-child){
+   border-right:1px solid #1f1f1f;
+}
+.movie-genres li a{
+    display:inline-block;
+    padding:5px  25px;
+    color:#bdbdbd;
+    text-decoration:none;
+    text-transform:capitalize;
+}
+.movie-list{
+  padding: 20px;
+  max-width:1140px;
+  min-width: 1140px;
+  margin:0 auto;
+  overflow:hidden;
+  background-color: #fff;
+}
+.movie-list li{
+  overflow: hidden;
+  text-align: center;
+  position:relative;
+  vertical-align:top;
+  width:25%;
+  display:inline-block;
+  float:left;
+  min-height: 400px;
+}
+
+.movie-list li img{
+  left:0;
+  top:0;
+  right:0;
+  margin: auto;
+  position:absolute;
+  max-width: 100%;
+  transition: all 300ms ease-in-out;
+}
+.movie-list li img:hover{
+  left:-5%;
+  max-width: 110%;
+}
+.movieTitle{
+    z-index:99;
+    position:absolute;
+    bottom:40px;
+    right:0;
+    left:0;
+    text-align:center;
+    margin:0px;
+    padding:15px;
+    background-color:rgba(0,0,0,.88);
+    color:#a4d814;
+    font-size:.8em;
 }
