@@ -23,6 +23,7 @@ export default class MovieView extends Component{
     this.viewReview = this.viewReview.bind(this);
     this.addComment = this.addComment.bind(this);
     this.getCurrentUser = this.getCurrentUser.bind(this);
+    this.addRating = this.addRating.bind(this);
   }
 
   componentDidMount() {
@@ -88,7 +89,7 @@ export default class MovieView extends Component{
     let newReview = {
       title: this.refs.reviewTitle.value,
       body: this.refs.reviewBody.value,
-      reviewer_id: 1,
+      reviewer_id: this.state.currentUser.id,
       movie_id: this.state.movieInfo.id
     }
     Axios({
@@ -114,6 +115,25 @@ export default class MovieView extends Component{
     })
   }
 
+  addRating(e) {
+    e.preventDefault();
+    let newRating = {
+      value: this.refs.rating.value,
+      movie_id: this.state.movieInfo.id,
+      user_id: this.state.currentUser.id
+    }
+    Axios({
+      method: "post",
+      url: "http://localhost:3000/ratings",
+      data: newRating
+    })
+    .then((response) => {
+      this.setState({
+        averageRating: response.data
+      })
+    })
+  }
+
   render() {
     let {title,description,poster_url,year} = this.state.movieInfo
     return(
@@ -124,8 +144,8 @@ export default class MovieView extends Component{
           { this.state.signedIn ?
               <div>
                 <p>Rate this movie:</p>
-                <form>
-                  <select name="rating">
+                <form onSubmit={this.addRating}>
+                  <select ref="rating" name="rating">
                     <option value="5">5</option>
                     <option value="4">4</option>
                     <option value="3">3</option>

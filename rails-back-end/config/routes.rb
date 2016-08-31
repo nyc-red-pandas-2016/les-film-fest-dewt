@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   post 'comments', to: 'comments#create'
 
+  post 'ratings', to: 'ratings#create'
+
   get 'users/:id', to: 'users#show'
 
   root to: "home#index"

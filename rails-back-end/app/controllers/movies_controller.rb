@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
 
   def show
     movie = Movie.find(params[:id])
-    average_rating = (movie.ratings.pluck("value").sum / movie.ratings.length)
+    average_rating = '%.4f' % (movie.ratings.pluck("value").sum.to_f / movie.ratings.length)
     movie_hash = { movieInfo: movie, averageRating: average_rating }
     render json: movie_hash.to_json 
   end
