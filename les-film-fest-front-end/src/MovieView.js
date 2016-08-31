@@ -14,7 +14,8 @@ export default class MovieView extends Component{
       currentUser: {},
       reviewer: false,
       signedIn: false,
-      averageRating: 0
+      averageRating: 0,
+      userRated: false
     }
     this.getMovieInfo = this.getMovieInfo.bind(this);
     this.getReviews = this.getReviews.bind(this);
@@ -27,19 +28,38 @@ export default class MovieView extends Component{
   }
 
   componentDidMount() {
-    this.getMovieInfo();
     this.getReviews();
+    this.getMovieInfo();
   }
 
   componentWillMount() {
     this.getCurrentUser();
   }
 
-  getMovieInfo() {
-    Axios.get(`http://localhost:3000/movies/${this.props.params.movie_id}`)
+  getCurrentUser() {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+      Axios.get(`http://localhost:3000/users/${currentUser.id}`)
       .then((response) => {
         this.setState({
-          movieInfo: response.data.movieInfo, averageRating: response.data.averageRating
+          currentUser: response.data.userInfo, reviewer: response.data.reviewerStatus, signedIn: true
+        })
+      })
+    }
+  }
+
+  getMovieInfo() {
+    var userRated = false;
+    var user = JSON.parse(localStorage.getItem('currentUser'));
+    Axios.get(`http://localhost:3000/movies/${this.props.params.movie_id}`)
+      .then((response) => {
+        for (var i = 0; i < response.data.usersWhoRated.length; i++) {
+          if (response.data.usersWhoRated[i] === user.id) {
+            userRated = true
+          }
+        }
+        this.setState({
+          movieInfo: response.data.movieInfo, averageRating: response.data.averageRating, userRated: userRated
         })
       })
   }
@@ -143,17 +163,23 @@ export default class MovieView extends Component{
           <h4>Average Rating: {this.state.averageRating}</h4>
           { this.state.signedIn ?
               <div>
-                <p>Rate this movie:</p>
-                <form onSubmit={this.addRating}>
-                  <select ref="rating" name="rating">
-                    <option value="5">5</option>
-                    <option value="4">4</option>
-                    <option value="3">3</option>
-                    <option value="2">2</option>
-                    <option value="1">1</option>
-                  </select>
-                  <input type="submit" value="Rate this movie" />
-                </form>
+                { this.state.userRated ?
+                  null
+                :
+                  <div>
+                    <p>Rate this movie:</p>
+                    <form onSubmit={this.addRating}>
+                      <select ref="rating" name="rating">
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                      </select>
+                      <input type="submit" value="Rate this movie" />
+                    </form>
+                  </div>
+                }
               </div>
             :
               null
