@@ -121,6 +121,23 @@ export default class MovieView extends Component{
         <div className="movie-info">
           <h2 className="movie-title">{title} ({year})</h2>
           <h4>Average Rating: {this.state.averageRating}</h4>
+          { this.state.signedIn ?
+              <div>
+                <p>Rate this movie:</p>
+                <form>
+                  <select name="rating">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                  </select>
+                  <input type="submit" value="Rate this movie" />
+                </form>
+              </div>
+            :
+              null
+          }
           <img src={poster_url} alt={title} className="movie-poster"/>
           <span className="plot-details">
             <p className="plot-header">Plot:</p>
