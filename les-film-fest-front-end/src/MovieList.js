@@ -12,6 +12,7 @@ export default class MovieList extends Component{
     };
     this.filterGenre = this.filterGenre.bind(this);
     this.getMovies = this.getMovies.bind(this);
+    this.showAll = this.showAll.bind(this);
   }
 
   componentDidMount() {
@@ -21,12 +22,12 @@ export default class MovieList extends Component{
         })
     }).catch((error)=>{console.log(error)})
 
-    let showAll = 'http://localhost:3000/movies'
-    this.getMovies(showAll)
+    this.showAll()
   }
 
-  movieGenre(){
-
+  showAll() {
+    let showAll = 'http://localhost:3000/movies'
+    this.getMovies(showAll)
   }
 
   getMovies(url) {
@@ -59,6 +60,7 @@ export default class MovieList extends Component{
       return(
         <div>
           <ul className="movie-genres">
+              <li onClick={this.showAll}><a className="genreBtn">All</a></li>
             { this.state.genres.map((genre,index) => {
               return (
               <li key={index}>
