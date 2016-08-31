@@ -39,6 +39,7 @@ export default class ReviewView extends Component {
   }
 
   render() {
+    debugger;
     return (
       <div>
         <h2>{this.props.review.reviewContent.title}</h2>
@@ -53,13 +54,17 @@ export default class ReviewView extends Component {
             )}
           )}
         </ul>
-        <button onClick={this.toggleAddCommentForm}>
-          { this.state.commentFormVisible ?
-              <p>Hide comment form</p>
-            :
-              <p>Add a comment</p>
-          }
-        </button>
+        { this.props.signedIn === true ?
+            <button onClick={this.toggleAddCommentForm}>
+              { this.state.commentFormVisible ?
+                  <p>Hide comment form</p>
+                :
+                  <p>Add a comment</p>
+              }
+            </button>
+          :
+            null
+        }
         { this.state.commentFormVisible ?
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="comment[body]">Comment:</label>
