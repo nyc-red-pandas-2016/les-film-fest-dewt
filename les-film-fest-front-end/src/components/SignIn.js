@@ -30,7 +30,6 @@ export default class SignIn extends Component {
     loginRequest.fail(function(response)
     {
       this.setState({ error: response.responseText.substring(10, response.responseText.length - 2) });
-      debugger
     }.bind(this));
   }
 

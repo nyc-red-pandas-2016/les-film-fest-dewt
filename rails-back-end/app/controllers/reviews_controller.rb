@@ -4,7 +4,9 @@ class ReviewsController < ApplicationController
     reviews = movie.reviews
     reviews_array = []
     reviews.each do |review|
-      reviews_array << { reviewContent: review, comments: review.comments }
+      reviews_array << { reviewContent: review,
+        comments: review.comments.map {|comment| {commentContent: comment, commentVoteCount: comment.count_votes } },
+        voteCount: review.count_votes }
     end
     render json: reviews_array.to_json
   end

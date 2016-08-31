@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {registrations: "users/registrations"}
+  devise_for :users, :controllers => {registrations: "users/registrations", sessions: "users/sessions"}
 
   get 'genres', to: 'genres#index'
   get 'genres/:genre', to: 'genres#show'
 
+  get 'reviews/:id/users/:user_id/upvote', to: 'votes#upvote_review'
+  get 'reviews/:id/users/:user_id/downvote', to: 'votes#downvote_review'
 
-  resources :movies, only: [:index, :show] do 
+  get 'comments/:id/users/:user_id/upvote', to: 'votes#upvote_comment'
+  get 'comments/:id/users/:user_id/downvote', to: 'votes#downvote_comment'
+
+
+  resources :movies, only: [:index, :show] do
     resources :reviews, only: [:index, :show, :new, :create, :destroy]
   end
 
