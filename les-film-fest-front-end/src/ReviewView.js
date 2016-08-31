@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 
 export default class ReviewView extends Component {
+  constructor() {
+    super();
+    this.state = {
+      commentFormVisible: false
+    }
+    this.toggleAddCommentForm = this.toggleAddCommentForm.bind(this);
+  }
   render() {
     return (
       <div>
@@ -17,6 +24,13 @@ export default class ReviewView extends Component {
             )}
           )}
         </ul>
+        <button onClick={this.toggleAddCommentForm}>
+        { this.state.commentFormVisible ?
+            Hide comment form
+          :
+            Add a comment
+        }
+        </button>
       </div>
     )
   }
