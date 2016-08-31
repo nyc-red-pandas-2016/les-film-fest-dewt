@@ -7,4 +7,10 @@ class AuthController < ApplicationController
     end
 
   end
+
+  def sign_user_in(email)
+    current_user = User.find_by(email)
+    user_signed_in = true
+  end
+
 end
