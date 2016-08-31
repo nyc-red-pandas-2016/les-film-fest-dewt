@@ -76,14 +76,14 @@ export default class MovieList extends Component{
           <ul className="movie-list">
             {movies.map((movie,index) => {
               return(
-                <Link to={`/movies/${movie.id}`}  key={index}>
+                <li  key={index}>
+                <Link to={`/movies/${movie.id}`} >
                   <div className="movie-list-item">
-                    <li>
+                      <h3 className="movieTitle">{movie.title}</h3>
                       <img src={movie.poster_url} className="thumbnail" alt={movie.name}/>
-                      {movie.title}
-                    </li>
                   </div>
                 </Link>
+                </li>
               )}
             )}
           </ul>
