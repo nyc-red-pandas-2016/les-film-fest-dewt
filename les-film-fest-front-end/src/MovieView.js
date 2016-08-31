@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import { Link } from 'react-router';
 import './App.css';
 import Axios from 'axios';
 import ReviewView from './ReviewView'
@@ -18,6 +17,7 @@ export default class MovieView extends Component{
     this.toggleAddReviewForm = this.toggleAddReviewForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.viewReview = this.viewReview.bind(this);
+    this.addComment = this.addComment.bind(this);
   }
 
   componentDidMount() {
@@ -51,7 +51,6 @@ export default class MovieView extends Component{
 
   viewReview(e) {
     let reviewId = Number(e.target.id);
-    debugger;
     var review;
     for (var i = 0; i < this.state.reviews.length; i++) {
       if (this.state.reviews[i].reviewContent.id === reviewId) {
@@ -86,8 +85,15 @@ export default class MovieView extends Component{
     })
   }
 
-  render() {
+  addComment(response) {
+    var newReviewToView = this.state.reviewToView;
+    newReviewToView.comments.concat([response]);
+    this.setState({
+      reviewToView: newReviewToView
+    })
+  }
 
+  render() {
     let {title,description,poster_url,year} = this.state.movieInfo
     return(
       <div className="movie-display">
@@ -129,7 +135,7 @@ export default class MovieView extends Component{
         }
         { this.state.reviewLoaded ?
             <div className="review-display">
-              <ReviewView review={this.state.reviewToView} movieId={this.state.movieInfo.id} />
+              <ReviewView review={this.state.reviewToView} movieId={this.state.movieInfo.id} addComment={this.addComment} />
             </div>
           :
             null

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import './App.css';
 import $ from 'jquery';
+import Axios from 'axios';
 
 export default class App extends Component {
   constructor(){
