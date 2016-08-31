@@ -21341,3 +21341,132 @@ Processing by ReviewsController#index as HTML
   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 6]]
 Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.9ms)
 
+<<<<<<< 0699c4e468a4804dadeda5451b2f04c013a9e609
+=======
+
+DEPRECATION WARNING: Passing strings or symbols to the middleware builder is deprecated, please change
+them to actual class references.  For example:
+
+  "Rack::Cors" => Rack::Cors
+
+ (called from <top (required)> at /Users/tonynarisi/DevBootcamp/Phase 3/les-film-fest-dewt/rails-back-end/config/environment.rb:5)
+DEPRECATION WARNING: Passing strings or symbols to the middleware builder is deprecated, please change
+them to actual class references.  For example:
+
+  "Rack::Cors" => Rack::Cors
+
+ (called from <top (required)> at /Users/tonynarisi/DevBootcamp/Phase 3/les-film-fest-dewt/rails-back-end/config/environment.rb:5)
+Started GET "/movies" for ::1 at 2016-08-30 22:27:09 -0400
+Started GET "/genres" for ::1 at 2016-08-30 22:27:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+Processing by GenresController#index as HTML
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+Completed 200 OK in 26ms (Views: 10.0ms | ActiveRecord: 1.2ms)
+
+
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/genres/romance" for ::1 at 2016-08-30 22:27:13 -0400
+Processing by GenresController#show as HTML
+  Parameters: {"genre"=>"romance"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."name" = ? LIMIT ?[0m  [["name", "romance"], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "movie_genres" ON "movies"."id" = "movie_genres"."movie_id" WHERE "movie_genres"."genre_id" = ?[0m  [["genre_id", 3]]
+Completed 200 OK in 138ms (Views: 20.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/genres/comedy" for ::1 at 2016-08-30 22:27:14 -0400
+Processing by GenresController#show as HTML
+  Parameters: {"genre"=>"comedy"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."name" = ? LIMIT ?[0m  [["name", "comedy"], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "movie_genres" ON "movies"."id" = "movie_genres"."movie_id" WHERE "movie_genres"."genre_id" = ?[0m  [["genre_id", 2]]
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/genres/action" for ::1 at 2016-08-30 22:27:14 -0400
+Processing by GenresController#show as HTML
+  Parameters: {"genre"=>"action"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."name" = ? LIMIT ?[0m  [["name", "action"], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "movie_genres" ON "movies"."id" = "movie_genres"."movie_id" WHERE "movie_genres"."genre_id" = ?[0m  [["genre_id", 1]]
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/2/reviews" for ::1 at 2016-08-30 22:27:15 -0400
+Processing by ReviewsController#index as HTML
+Started GET "/movies/2" for ::1 at 2016-08-30 22:27:15 -0400
+  Parameters: {"movie_id"=>"2"}
+Processing by MoviesController#show as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+  [1m[36mReview Load (1.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+Completed 200 OK in 46ms (Views: 0.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/genres" for ::1 at 2016-08-30 22:27:27 -0400
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies" for ::1 at 2016-08-30 22:27:27 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/3" for ::1 at 2016-08-30 22:27:28 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+Started GET "/movies/3/reviews" for ::1 at 2016-08-30 22:27:28 -0400
+Processing by ReviewsController#index as HTML
+  Parameters: {"movie_id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 3]]
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 7]]
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.1ms)
+
+
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 8]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/genres" for ::1 at 2016-08-30 22:27:42 -0400
+Started GET "/movies" for ::1 at 2016-08-30 22:27:42 -0400
+Processing by GenresController#index as HTML
+Processing by MoviesController#index as HTML
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+
+
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.1ms)
+
+
+DEPRECATION WARNING: Passing strings or symbols to the middleware builder is deprecated, please change
+them to actual class references.  For example:
+
+  "Rack::Cors" => Rack::Cors
+
+ (called from <top (required)> at /Users/tonynarisi/DevBootcamp/Phase 3/les-film-fest-dewt/rails-back-end/config/environment.rb:5)
+Started GET "/movies" for ::1 at 2016-08-31 09:06:04 -0400
+Started GET "/genres" for ::1 at 2016-08-31 09:06:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GenresController#index as HTML
+Processing by MoviesController#index as HTML
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+Completed 200 OK in 25ms (Views: 8.1ms | ActiveRecord: 0.8ms)
+
+
+Completed 200 OK in 35ms (Views: 17.9ms | ActiveRecord: 1.1ms)
