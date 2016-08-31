@@ -39,7 +39,7 @@ export default class ReviewView extends Component {
     var reviewId = this.props.review.reviewContent.id
     var userId = JSON.parse(localStorage.getItem('currentUser')).id
     $.ajax({
-      url: `http://localhost:3000/reviews/${reviewId}/users/${userId}/downvote`,
+      url: `http://localhost:3000/reviews/${reviewId}/users/${userId}/downvote`
     }).done(function(response) {
       this.setState({
         voteCount: this.state.voteCount - 1
@@ -52,10 +52,13 @@ export default class ReviewView extends Component {
     var commentId = commentDiv.id
     var userId = JSON.parse(localStorage.getItem('currentUser')).id
     $.ajax({
-      url: `http://localhost:3000/comments/${commentId}/users/${userId}/downvote`,
+      url: `http://localhost:3000/comments/${commentId}/users/${userId}/upvote`
     }).done(function(response) {
-      this.refs.voteCounter.innerText = parseInt(this.refs.voteCounter.innerText) + 1
-    }.bind(this));
+      var ref = `voteCounter${commentId}`
+      var pTag = this.refs[ref] 
+      pTag.innerText = parseInt(pTag.innerText) + 1
+      // commentDiv.children()[1].innerText() = parseInt(commentDiv.children[1].innerText()) - 1
+    }.bind(this))
   }
 
   downvoteComment(event) {
@@ -63,10 +66,13 @@ export default class ReviewView extends Component {
     var commentId = commentDiv.id
     var userId = JSON.parse(localStorage.getItem('currentUser')).id
     $.ajax({
-      url: `http://localhost:3000/comments/${commentId}/users/${userId}/upvote`,
+      url: `http://localhost:3000/comments/${commentId}/users/${userId}/downvote`
     }).done(function(response) {
-      this.refs.voteCounter.innerText = parseInt(this.refs.voteCounter.innerText) - 1
-    }.bind(this));
+      var ref = `voteCounter${commentId}`
+      var pTag = this.refs[ref] 
+      pTag.innerText = parseInt(pTag.innerText) - 1
+      // commentDiv.children()[1].innerText() = parseInt(commentDiv.children[1].innerText()) - 1
+    }.bind(this))
   }
 
 
@@ -114,9 +120,9 @@ export default class ReviewView extends Component {
               <li key={index} className="individual-comment">
                 {comment.commentContent.body}
                 <div id={comment.commentContent.id} className="vote-area">
-                  <button type="button" onClick={this.upvoteComment}>&#9650;</button>
-                  <p ref="voteCounter">{comment.commentVoteCount}</p>
-                  <button type="button" onClick={this.downvoteComment}>&#9660;</button>
+                  <button type="button" onClick={this.upvoteComment}> {comment.commentContent.id} &#9650;</button>
+                  <p ref={`voteCounter${comment.commentContent.id}`}>{comment.commentVoteCount}</p>
+                  <button type="button" onClick={this.downvoteComment}>{comment.commentContent.id} &#9660;</button>
                 </div>
               </li>
             )}
