@@ -109,3 +109,7 @@ body {
   border: 1px solid #000000;
   width: 400px;
 }
+
+.form-label, .form-input, .form-textarea {
+  display: block;
+}
