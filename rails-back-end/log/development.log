@@ -43843,3 +43843,179 @@ Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
 [active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (74.99ms)
 Completed 200 OK in 78ms (Views: 75.6ms | ActiveRecord: 2.0ms)
 
+DEPRECATION WARNING: Passing strings or symbols to the middleware builder is deprecated, please change
+them to actual class references.  For example:
+
+  "Rack::Cors" => Rack::Cors
+
+ (called from <top (required)> at /Users/tonynarisi/DevBootcamp/Phase 3/les-film-fest-dewt/rails-back-end/config/environment.rb:5)
+Started GET "/movies" for ::1 at 2016-08-31 15:21:55 -0400
+Started GET "/genres" for ::1 at 2016-08-31 15:21:55 -0400
+Started GET "/movies" for ::1 at 2016-08-31 15:21:55 -0400
+Started GET "/auth/is_signed_in.json" for ::1 at 2016-08-31 15:21:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GenresController#index as HTML
+Processing by MoviesController#index as HTML
+Processing by MoviesController#index as HTML
+Processing by AuthController#is_signed_in? as JSON
+Completed 200 OK in 16ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Genre::ActiveRecord_Relation (0.81ms)
+Completed 200 OK in 79ms (Views: 43.7ms | ActiveRecord: 0.8ms)
+
+
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (219.2ms)
+Completed 200 OK in 328ms (Views: 292.7ms | ActiveRecord: 2.3ms)
+
+
+[active_model_serializers]   [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 1]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 2]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 3]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 4]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 5]]
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers]   [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "movie_genres" ON "genres"."id" = "movie_genres"."genre_id" WHERE "movie_genres"."movie_id" = ?[0m  [["movie_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (271.94ms)
+Completed 200 OK in 381ms (Views: 342.7ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/1" for ::1 at 2016-08-31 15:21:57 -0400
+Started GET "/movies/2" for ::1 at 2016-08-31 15:21:57 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ratings"."value" FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 2]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ratings"."user_id" FROM "ratings" WHERE "ratings"."movie_id" = ?[0m  [["movie_id", 2]]
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.7ms)
+
+
+Processing by UsersController#show as HTML
+Started GET "/movies/2/reviews" for ::1 at 2016-08-31 15:21:57 -0400
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by ReviewsController#index as HTML
+Completed 200 OK in 39ms (Views: 0.7ms | ActiveRecord: 0.9ms)
+
+
+  Parameters: {"movie_id"=>"2"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 2]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 2]]
+  [1m[36mVote Load (0.1ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ?[0m  [["votable_id", 3], ["votable_type", "Comment"]]
+  [1m[36mVote Load (0.1ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ?[0m  [["votable_id", 9], ["votable_type", "Comment"]]
+  [1m[36mVote Load (0.1ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ?[0m  [["votable_id", 2], ["votable_type", "Review"]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 10]]
+  [1m[36mVote Load (0.2ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ?[0m  [["votable_id", 18], ["votable_type", "Comment"]]
+  [1m[36mVote Load (0.1ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ?[0m  [["votable_id", 10], ["votable_type", "Review"]]
+Completed 200 OK in 36ms (Views: 0.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/comments/3/users/1/downvote" for ::1 at 2016-08-31 15:22:02 -0400
+Processing by VotesController#downvote_comment as */*
+  Parameters: {"id"=>"3", "user_id"=>"1"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "votes" ("value", "votable_id", "votable_type", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["value", -1], ["votable_id", 3], ["votable_type", "Comment"], ["created_at", 2016-08-31 19:22:02 UTC], ["updated_at", 2016-08-31 19:22:02 UTC], ["user_id", 1]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+No template found for VotesController#downvote_comment, rendering head :no_content
+Completed 204 No Content in 200ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/comments/3/users/1/upvote" for ::1 at 2016-08-31 15:22:04 -0400
+Processing by VotesController#upvote_comment as */*
+  Parameters: {"id"=>"3", "user_id"=>"1"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "votes" ("value", "votable_id", "votable_type", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["value", 1], ["votable_id", 3], ["votable_type", "Comment"], ["created_at", 2016-08-31 19:22:04 UTC], ["updated_at", 2016-08-31 19:22:04 UTC], ["user_id", 1]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+No template found for VotesController#upvote_comment, rendering head :no_content
+Completed 204 No Content in 208ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/comments/9/users/1/downvote" for ::1 at 2016-08-31 15:22:06 -0400
+Processing by VotesController#downvote_comment as */*
+  Parameters: {"id"=>"9", "user_id"=>"1"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "votes" ("value", "votable_id", "votable_type", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["value", -1], ["votable_id", 9], ["votable_type", "Comment"], ["created_at", 2016-08-31 19:22:06 UTC], ["updated_at", 2016-08-31 19:22:06 UTC], ["user_id", 1]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+No template found for VotesController#downvote_comment, rendering head :no_content
+Completed 204 No Content in 199ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/comments/9/users/1/upvote" for ::1 at 2016-08-31 15:22:07 -0400
+Processing by VotesController#upvote_comment as */*
+  Parameters: {"id"=>"9", "user_id"=>"1"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "votes" ("value", "votable_id", "votable_type", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["value", 1], ["votable_id", 9], ["votable_type", "Comment"], ["created_at", 2016-08-31 19:22:07 UTC], ["updated_at", 2016-08-31 19:22:07 UTC], ["user_id", 1]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+No template found for VotesController#upvote_comment, rendering head :no_content
+Completed 204 No Content in 195ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/reviews/2/users/1/upvote" for ::1 at 2016-08-31 15:22:08 -0400
+Processing by VotesController#upvote_review as */*
+  Parameters: {"id"=>"2", "user_id"=>"1"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "votes" ("value", "votable_id", "votable_type", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["value", 1], ["votable_id", 2], ["votable_type", "Review"], ["created_at", 2016-08-31 19:22:08 UTC], ["updated_at", 2016-08-31 19:22:08 UTC], ["user_id", 1]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+No template found for VotesController#upvote_review, rendering head :no_content
+Completed 204 No Content in 202ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/reviews/2/users/1/downvote" for ::1 at 2016-08-31 15:22:09 -0400
+Processing by VotesController#downvote_review as */*
+  Parameters: {"id"=>"2", "user_id"=>"1"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "votes" ("value", "votable_id", "votable_type", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["value", -1], ["votable_id", 2], ["votable_type", "Review"], ["created_at", 2016-08-31 19:22:09 UTC], ["updated_at", 2016-08-31 19:22:09 UTC], ["user_id", 1]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+No template found for VotesController#downvote_review, rendering head :no_content
+Completed 204 No Content in 202ms (ActiveRecord: 3.7ms)
+
+
