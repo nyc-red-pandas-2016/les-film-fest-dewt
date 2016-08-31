@@ -21470,3 +21470,24 @@ Completed 200 OK in 25ms (Views: 8.1ms | ActiveRecord: 0.8ms)
 
 
 Completed 200 OK in 35ms (Views: 17.9ms | ActiveRecord: 1.1ms)
+<<<<<<< e130e8c30c3778f5f051deda6dcea148f7e0424a
+=======
+
+
+Started GET "/movies/3" for ::1 at 2016-08-31 09:06:55 -0400
+Started GET "/movies/3/reviews" for ::1 at 2016-08-31 09:06:55 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Processing by ReviewsController#index as HTML
+  Parameters: {"movie_id"=>"3"}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 3]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 7]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 8]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = ?[0m  [["review_id", 3]]
+Completed 200 OK in 99ms (Views: 0.2ms | ActiveRecord: 2.6ms)
+
