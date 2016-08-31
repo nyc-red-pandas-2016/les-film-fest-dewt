@@ -10,7 +10,10 @@ export default class MovieView extends Component{
       movieInfo: {},
       reviews: [],
       reviewFormVisible: false,
-      reviewToView: {}
+      reviewToView: {},
+      currentUser: {},
+      reviewer: false,
+      signedIn: false
     }
     this.getMovieInfo = this.getMovieInfo.bind(this);
     this.getReviews = this.getReviews.bind(this);
@@ -18,11 +21,16 @@ export default class MovieView extends Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.viewReview = this.viewReview.bind(this);
     this.addComment = this.addComment.bind(this);
+    this.getCurrentUser = this.getCurrentUser.bind(this);
   }
 
   componentDidMount() {
     this.getMovieInfo();
     this.getReviews();
+  }
+
+  componentWillMount() {
+    this.getCurrentUser();
   }
 
   getMovieInfo() {
@@ -41,6 +49,18 @@ export default class MovieView extends Component{
           reviews: response.data
         })
     })
+  }
+
+  getCurrentUser() {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+      Axios.get(`http://localhost:3000/users/${currentUser.id}`)
+      .then((response) => {
+        this.setState({
+          currentUser: response.data.userInfo, reviewer: response.data.reviewerStatus, signedIn: true
+        })
+      })
+    }
   }
 
   toggleAddReviewForm() {
@@ -88,7 +108,6 @@ export default class MovieView extends Component{
   addComment(response) {
     var newReviewToView = this.state.reviewToView;
     newReviewToView.comments = newReviewToView.comments.concat([response]);
-    debugger;
     this.setState({
       reviewToView: newReviewToView
     })
@@ -116,27 +135,31 @@ export default class MovieView extends Component{
             )}
           )}
         </div>
-        <button onClick={this.toggleAddReviewForm}>
-          { this.state.reviewFormVisible ?
-              <p>Hide review form</p>
-            :
-              <p>Add a review</p>
-          }
-        </button>
-        { this.state.reviewFormVisible ?
-            <form onSubmit={this.handleSubmit}>
-              <label htmlFor="review[title]" className="form-label">Title:</label>
-              <input ref="reviewTitle" type="text" name="review[title]" className="form-input"/>
-              <label htmlFor="review[body]" className="form-label">Body:</label>
-              <textarea rows="5" cols="30" name="review[body]" className="form-textarea" ref="reviewBody"></textarea>
-              <input type="submit" value="Add Review" className="form-input"/>
-            </form>
+        { this.state.reviewer === true ? 
+            <button onClick={this.toggleAddReviewForm}>
+              { this.state.reviewFormVisible ?
+                  <p>Hide review form</p>
+                :
+                  <p>Add a review</p>
+              }
+            </button>
           :
-            null
+           null
+        }
+        { this.state.reviewFormVisible ?
+          <form onSubmit={this.handleSubmit}>
+            <label htmlFor="review[title]" className="form-label">Title:</label>
+            <input ref="reviewTitle" type="text" name="review[title]" className="form-input"/>
+            <label htmlFor="review[body]" className="form-label">Body:</label>
+            <textarea rows="5" cols="30" name="review[body]" className="form-textarea" ref="reviewBody"></textarea>
+            <input type="submit" value="Add Review" className="form-input"/>
+          </form>
+        :
+          null
         }
         { this.state.reviewLoaded ?
             <div className="review-display">
-              <ReviewView review={this.state.reviewToView} movieId={this.state.movieInfo.id} addComment={this.addComment} />
+              <ReviewView review={this.state.reviewToView} movieId={this.state.movieInfo.id} addComment={this.addComment} signedIn={this.state.signedIn}/>
             </div>
           :
             null
